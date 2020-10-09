@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// using query parameter ?fn&ln..etc
+Route::get('/name', function () {
+    $name= request("name");
+    return view('name', ["name" => $name ]);
+});
+
+// using route parameter(path parameter)
+Route::get('/name/{username}', function ($username) {
+    return view('name', ["name" => $username ]);
+});
