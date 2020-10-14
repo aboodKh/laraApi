@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\CourseController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +32,11 @@ Route::get('/name/{username}', function ($username) {
 Route::get('/employees',[EmployeeController::class, 'index']);
 
 Route::get('/employees/{id}',[EmployeeController::class, 'show']);
+
+// notice how /create before /{id}, order is important
+// name method used to define a named route
+Route::get('/courses',[CourseController::class, 'index'])->name("courses.index");
+Route::get('/courses/create',[CourseController::class, 'create'])->name("courses.create");
+Route::get('/courses/{id}',[CourseController::class, 'show'])->name("courses.show");
+Route::post('/courses',[CourseController::class, 'store'])->name("courses.store");
+Route::delete('/courses/{id}',[CourseController::class, 'destroy'])->name("courses.destroy");
