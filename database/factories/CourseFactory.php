@@ -21,6 +21,7 @@ class CourseFactory extends Factory
      * @return array
      */
     public function definition()
+    //values for created_at, updated_at will be added automatically
     {
         return [
             "code" => Str::random(3),
